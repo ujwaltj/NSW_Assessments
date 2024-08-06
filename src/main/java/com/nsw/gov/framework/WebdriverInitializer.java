@@ -45,19 +45,8 @@ public class WebdriverInitializer
 			options.addArguments("start-maximized");
 			options.addArguments("disable-infobars");
 			options.addArguments("--disable-extensions");     
-			// auth token required to access SeleniumBox
-	/*		DesiredCapabilities capability = new DesiredCapabilities();
-			capability = DesiredCapabilities.chrome();
-			capability.setBrowserName("chrome");
-			capability.setCapability("e34:token","79fed42b-8f73-43"); // auth token required to access SeleniumBox
-			capability.setCapability("e34:video", true);
-		//	capability.setVersion("75");
-		//	capability.setCapability(CapabilityType.LOGGING_PREFS, logs);
-		//	capability.setPlatform(org.openqa.selenium.Platform.WINDOWS);
-			// Initialize driver to use Selenium Box URL
-			webDriver = new RemoteWebDriver(new URL(nodeUrl), capability);    */
-	    	 webDriver = new ChromeDriver(options);
-    		System.out.println(webDriver);
+			webDriver = new ChromeDriver(options);
+    		        System.out.println(webDriver);
 			break;
 
 		case "Firefox":
