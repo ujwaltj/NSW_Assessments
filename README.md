@@ -1,8 +1,5 @@
 
-# Offical NSW Government Media Releases from different Ministers
-
-A brief description of what this project does and who it's for
-
+# Offical NSW Government Media Releases from different Ministers Project
 
 ## Documentation
 
@@ -33,8 +30,8 @@ Under src/test/java, we have the test class which contains 2 test scripts for th
 There are 2 dependencies used in the pom.xml file.
 
 *testng
-
 *selenium java
+*POM Design pattern
 
 
 
