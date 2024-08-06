@@ -77,7 +77,7 @@ public class TC001_VerifyMediaReleasePage extends BaseClass
 		String totalPagesOnMediaReleasePage = mediaRelease.totalPagesOnMediaRelease();
 		int aggregatePagesOnMediaRelease = Integer.parseInt(totalPagesOnMediaReleasePage);
 		//On the media release page the No.of Pages is 1990 after applying the Treasury filter I get 88
-		//So I am  comparing these values to check if the filter was indeed applied than its total pages count
+		//So I am  comparing these values to check if the filter was indeed applied then its total pages count
 		//is less than the media-release page count
 		Assert.assertTrue((aggregatePagesOnMediaReleasePageAfterApplyingFilter < aggregatePagesOnMediaRelease), "The Filter applied has more pages");	
 		
