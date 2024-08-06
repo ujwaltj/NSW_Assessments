@@ -76,10 +76,15 @@ public class TC001_VerifyMediaReleasePage extends BaseClass
 		mediaRelease.clickOnClearAllFilterButton();
 		String totalPagesOnMediaReleasePage = mediaRelease.totalPagesOnMediaRelease();
 		int aggregatePagesOnMediaRelease = Integer.parseInt(totalPagesOnMediaReleasePage);
+		//On the media release page the No.of Pages is 1990 after applying the Treasury filter I get 88
+		//So I am  comparing these values to check if the filter was indeed applied than its total pages count
+		//is less than the media-release page count
 		Assert.assertTrue((aggregatePagesOnMediaReleasePageAfterApplyingFilter < aggregatePagesOnMediaRelease), "The Filter applied has more pages");	
 		
 		String currentUrl = driver.getCurrentUrl();
 		String updatedCurrentUrl = currentUrl.replaceAll("[?,]", "");
+		//If the Filter is actually removed then I am verifying this by fetching 
+		//the Url are removing the "?" at the end of the Url and comparing it with the media-release url
 		Assert.assertEquals(updatedCurrentUrl, "https://www.nsw.gov.au/media-releases");
 		 
 	}	
