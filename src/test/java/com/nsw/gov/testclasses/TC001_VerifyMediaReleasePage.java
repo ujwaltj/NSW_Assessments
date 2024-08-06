@@ -57,7 +57,11 @@ public class TC001_VerifyMediaReleasePage extends BaseClass
 		newPage = mediaRelease.openTheArticleForCorrespondingMinister();
 		String ActualMinisterName = newPage.validateTheMinisterNameOnArticleMatchesWithFilterApplied("Treasury");	
 		Assert.assertEquals(ActualMinisterName, "Treasury", "The Minster Name Does Not Match");
-		 
+
+		String currentUrl = driver.getCurrentUrl();
+		String decodedUrl = URLDecoder.decode(currentUrl, StandardCharsets.UTF_8.name());
+		String ministerName = decodedUrl.substring(decodedUrl.indexOf("ministers=") + 10).replace("%20", " ").trim();
+		Assert.assertEquals(ministerName, "Treasury", "The extracted minister's name does not match the expected name.");
 	}	
 	@Test(priority = 2)
 	public void TS002_Task2() throws Throwable
@@ -74,9 +78,9 @@ public class TC001_VerifyMediaReleasePage extends BaseClass
 		int aggregatePagesOnMediaRelease = Integer.parseInt(totalPagesOnMediaReleasePage);
 		Assert.assertTrue((aggregatePagesOnMediaReleasePageAfterApplyingFilter < aggregatePagesOnMediaRelease), "The Filter applied has more pages");	
 		
-		newPage = mediaRelease.openTheArticleForCorrespondingMinister();
-		String ActualMinisterName = newPage.validateTheMinisterNameOnArticleMatchesWithFilterApplied("Treasury");	
-		Assert.assertEquals(ActualMinisterName, "Treasury", "The Minster Name Does Not Match");
+		String currentUrl = driver.getCurrentUrl();
+		String updatedCurrentUrl = currentUrl.replaceAll("[?,]", "");
+		Assert.assertEquals(updatedCurrentUrl, "https://www.nsw.gov.au/media-releases");
 		 
 	}	
 	@AfterClass
