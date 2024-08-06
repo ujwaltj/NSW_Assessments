@@ -83,7 +83,7 @@ public class TC001_VerifyMediaReleasePage extends BaseClass
 		String currentUrl = driver.getCurrentUrl();
 		String updatedCurrentUrl = currentUrl.replaceAll("[?,]", "");
 		//If the Filter is actually removed then I am verifying this by fetching 
-		//the Url are removing the "?" at the end of the Url and comparing it with the media-release url
+		//the Url and removing the "?" at the end of the Url and comparing it with the media-release url
 		Assert.assertEquals(updatedCurrentUrl, "https://www.nsw.gov.au/media-releases");
 		 
 	}	
