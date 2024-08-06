@@ -8,7 +8,6 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import com.nsw.gov.framework.BaseClass;
 import com.nsw.gov.framework.ConfigData;
