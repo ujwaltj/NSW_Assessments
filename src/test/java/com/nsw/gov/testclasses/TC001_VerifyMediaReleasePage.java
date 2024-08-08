@@ -59,12 +59,10 @@ public class TC001_VerifyMediaReleasePage extends BaseClass
 		mediaRelease.clickOnMinisterCheckboxes("Treasurer");
 		mediaRelease.clickOnApplyFilter();
 		newPage = mediaRelease.openTheArticleForCorrespondingMinister();
+
 		boolean ActualMinisterName = newPage.validateTheMinisterNameOnArticleMatchesWithFilterApplied("Treasurer");	
 		Assert.assertTrue(ActualMinisterName, "The Minster Name Does Not Match"); 
-		
-	}
-
-	
+	}	
 
 	@AfterClass
 	public void tearDown()
