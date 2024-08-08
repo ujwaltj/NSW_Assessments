@@ -48,9 +48,6 @@ public class WebdriverInitializer
 				e.printStackTrace();
 			}
     		webDriver.manage().window().maximize();
-			System.setProperty("webdriver.chrome.driver", chromeFile.getAbsolutePath());   
-			webDriver = new ChromeDriver();
-    		System.out.println(webDriver);
 			break;
 
 		case "Firefox":
