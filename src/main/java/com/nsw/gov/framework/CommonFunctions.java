@@ -4,6 +4,8 @@ import java.lang.invoke.MethodHandles;
 
 import org.openqa.selenium.WebDriver;
 
+import com.nsw.gov.pages.MediaRelease;
+
 
 public class CommonFunctions 
 {
@@ -17,10 +19,10 @@ public class CommonFunctions
 		this.locatorPropReaderObj = proObject;
 	}
 	
-	public void launchSFApplication()
+	public MediaRelease launchSFApplication()
 	{
 		driver.get(ConfigData.sfURL);
 		System.out.println("Launched Application");
-		
+		return new MediaRelease(driver, locatorPropReaderObj);
 	}
 }

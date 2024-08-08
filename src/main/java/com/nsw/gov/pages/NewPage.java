@@ -10,18 +10,29 @@ public class NewPage {
 	WebDriver driver;
 	PropertiesReader propObject;
 
-
-	public NewPage(WebDriver driver, PropertiesReader propObject) 
-	{
+	public NewPage(WebDriver driver, PropertiesReader propObject) {
 		this.driver = driver;
 		this.propObject = propObject;
 	}
-	
-	////p[contains(@class, 'node-content__element node-content__element--meta') and contains(text(), 'Deputy Premier')]
-	public String validateTheMinisterNameOnArticleMatchesWithFilterApplied(String ministerName) {
+
+	public boolean validateTheMinisterNameOnArticleMatchesWithFilterApplied(String ministerName)
+			throws InterruptedException {
 		// Select the checkbox for the specified minister
-        WebElement ministerNameInArticle = driver.findElement(By.xpath("//p[contains(@class, 'node-content__element node-content__element--meta') and contains(text(), '" + ministerName + "')]"));
-        String ministerNameOnTheArticle=ministerNameInArticle.getText();
-        return ministerNameOnTheArticle;
+		boolean flag = false;
+		System.out.println("to read the Release BY");
+		// WebElement ministerNameInArticle = driver.findElement(By.cssSelector("p.node-content__element.node-content__element--meta:nth-of-type(2)"));
+		WebElement ministerNameInArticle = driver.findElement(By.cssSelector(propObject.getData("nswFetchTheMinisterNamesFromReleaseBy")));
+		String ministerNameRawValuesOnTheArticle = ministerNameInArticle.getText();
+		System.out.println(ministerNameRawValuesOnTheArticle);
+		String ministerNameOnTheArticle = ministerNameRawValuesOnTheArticle.replaceAll("[:,]", "");
+		String[] fetchMinisterName = ministerNameOnTheArticle.split(" ");
+		for (String iterateMinisterName : fetchMinisterName) {
+			if (iterateMinisterName.equals(ministerName)) {
+				System.out.println("The Minsiters name is "+iterateMinisterName);
+				flag = true;
+				break;
+			}		
+		}
+		return flag;
 	}
 }

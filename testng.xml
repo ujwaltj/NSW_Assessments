@@ -4,6 +4,8 @@
   <test thread-count="5" name="Test">
     <classes>
       <class name="com.nsw.gov.testclasses.TC001_VerifyMediaReleasePage"/>
+      <class name="com.nsw.gov.testclasses.TC002_VerifyMediaReleasePage_URL_AfterRemovingFilter"/>
+      <class name="com.nsw.gov.testclasses.TC003_VerifyMediaReleasePage_Url"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

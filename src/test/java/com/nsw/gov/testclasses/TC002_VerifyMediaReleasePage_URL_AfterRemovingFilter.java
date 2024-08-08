@@ -20,7 +20,7 @@ import com.nsw.gov.pages.NewPage;
 
 
 
-public class TC001_VerifyMediaReleasePage extends BaseClass
+public class TC002_VerifyMediaReleasePage_URL_AfterRemovingFilter extends BaseClass
 {
 
 //	public PropertiesReader propObject; 
@@ -50,22 +50,22 @@ public class TC001_VerifyMediaReleasePage extends BaseClass
 		}
 	}
 	
+
 	@Test
-	public void TS001_Task1() throws Throwable
+	public void TS001_2_Task1() throws Throwable
 	{
 		System.out.println("TC TEST");
-		//mediaRelease = new MediaRelease(driver, locatorpropReaderObj);
-//		mediaRelease.clickOnMinistersAccordian();
+		
 		mediaRelease.clickOnMinisterCheckboxes("Treasurer");
 		mediaRelease.clickOnApplyFilter();
-		newPage = mediaRelease.openTheArticleForCorrespondingMinister();
-		boolean ActualMinisterName = newPage.validateTheMinisterNameOnArticleMatchesWithFilterApplied("Treasurer");	
-		Assert.assertTrue(ActualMinisterName, "The Minster Name Does Not Match"); 
-		
+		String currentUrl = driver.getCurrentUrl();
+		String decodedUrl = URLDecoder.decode(currentUrl, StandardCharsets.UTF_8.name());
+		System.out.println("the decoded value of Url: " +decodedUrl);
+		String ministerName = decodedUrl.substring(decodedUrl.indexOf("ministers=") + 10).replace("%20", " ").trim();
+		System.out.println("the minsiters name in the URL: " +ministerName);		
+		Assert.assertEquals(ministerName, "Treasurer", "The extracted minister's name does not match the expected name."); 
 	}
-
 	
-
 	@AfterClass
 	public void tearDown()
 	{

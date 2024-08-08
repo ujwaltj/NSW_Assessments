@@ -37,27 +37,17 @@ public class WebdriverInitializer
 		{
 		case "Chrome":
  	    	File chromeFile = new File("./src/main/resources/drivers/chromedriver.exe");
-			System.setProperty("webdriver.chrome.driver", chromeFile.getAbsolutePath());
-			ChromeOptions options = new ChromeOptions();                                
-			options.setAcceptInsecureCerts(true);
-			options.setUnhandledPromptBehaviour(UnexpectedAlertBehaviour.ACCEPT);
-			options.addArguments("test-type");
-			options.addArguments("start-maximized");
-			options.addArguments("disable-infobars");
-			options.addArguments("--disable-extensions");     
-			// auth token required to access SeleniumBox
-	/*		DesiredCapabilities capability = new DesiredCapabilities();
-			capability = DesiredCapabilities.chrome();
-			capability.setBrowserName("chrome");
-			capability.setCapability("e34:token","79fed42b-8f73-43"); // auth token required to access SeleniumBox
-			capability.setCapability("e34:video", true);
-		//	capability.setVersion("75");
-		//	capability.setCapability(CapabilityType.LOGGING_PREFS, logs);
-		//	capability.setPlatform(org.openqa.selenium.Platform.WINDOWS);
-			// Initialize driver to use Selenium Box URL
-			webDriver = new RemoteWebDriver(new URL(nodeUrl), capability);    */
-	    	 webDriver = new ChromeDriver(options);
+			System.setProperty("webdriver.chrome.driver", chromeFile.getAbsolutePath());  
+	    	webDriver = new ChromeDriver();
     		System.out.println(webDriver);
+    		System.out.println(" CHROME HAS BEEN OPENED");
+    		try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+    		webDriver.manage().window().maximize();
 			break;
 
 		case "Firefox":
