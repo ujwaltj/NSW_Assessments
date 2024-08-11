@@ -1,7 +1,9 @@
 
 # Offical NSW Government Media Releases from different Ministers Project
-The Cucumber framework for the Assessment Task1 and Task2 are in the this repository.PLEASE GO TO THAT REPOSITORY 
+The **Cucumber framework** for the Assessment Task1 and Task2 are in the this repository.PLEASE GO TO THAT REPOSITORY 
 https://github.com/ujwaltj/AssessmentNSW_Cucumber/tree/master/src
+
+This repository is for **TestNG framework** for the Assessment Task1 and Task2
 ## Documentation
 
 Used Tools such as Selenium WebDriver, TestNG to create a framework and Java as the programming language.
